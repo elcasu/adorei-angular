@@ -9,15 +9,15 @@ var adoreiApp = angular.module("adoreiApp", [
 adoreiApp.config(["$routeProvider", function($routeProvider) {
   $routeProvider.
     when('/products', {
-      templateUrl: 'partials/product-list.html',
+      templateUrl: 'partials/products/list.html',
       controller: 'ProductListCtrl'
     }).
     when('/products/new', {
-      templateUrl: 'partials/product-new.html',
+      templateUrl: 'partials/products/new.html',
       controller: 'ProductNewCtrl'
     }).
     when('/categories', {
-      templateUrl: 'partials/category-list.html',
+      templateUrl: 'partials/categories/list.html',
       controller: 'CategoryListCtrl'
     }).
     otherwise({
