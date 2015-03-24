@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="adoreiApp">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Adorei - Control de Stock</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/application.css" />
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="js/api_client.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Adorei - Control de Stock</h1>
+    </div>
+    <div ng-include="'partials/sidebar.html'"></div>
+    <div class="main-wrapper">
+      <div ng-view></div>
+    </div>
+  </body>
+</html>

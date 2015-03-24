@@ -1,0 +1,23 @@
+<div class="main-subheader">
+  <h2>Listado de productos</h2>
+  <span>
+    <a href="#/products/new" class="btn btn-success">Nuevo producto</a>
+  </span>
+</div>
+<table class="table" ng-controller="ProductListCtrl">
+  <tr>
+    <th>C&oacute;digo</th>
+    <th>Nombre</th>
+    <th>Precio de compra</th>
+    <th>Precio de venta</th>
+    <th>Stock</th>
+  </tr>
+  <tr ng-repeat="product in products">
+    <td>{{ product.code }}</td>
+    <td>{{ product.name }}</td>
+    <td>{{ product.cost_price }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.stock }}</td>
+  </tr>
+</table>
+
