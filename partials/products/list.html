@@ -11,6 +11,7 @@
     <th>Precio de compra</th>
     <th>Precio de venta</th>
     <th>Stock</th>
+    <th>Acciones</th>
   </tr>
   <tr ng-repeat="product in products">
     <td>{{ product.code }}</td>
@@ -18,6 +19,10 @@
     <td>{{ product.cost_price }}</td>
     <td>{{ product.price }}</td>
     <td>{{ product.stock }}</td>
+    <td class="list-actions">
+      <a href="#/products/edit/{{ product.id }}" class="glyphicon glyphicon-edit" title="Editar"></a>
+      <a href="" ng-click="removeProduct(product)" class="glyphicon glyphicon-remove" title="Eliminar"></a>
+    </td>
   </tr>
 </table>
 

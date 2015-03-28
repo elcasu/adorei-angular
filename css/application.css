@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
 }
+.fix {
+  display: block;
+  clear: both;
+}
 .header {
   width: 100%;
   height: 100px;
@@ -56,4 +60,21 @@ body {
 
 input.ng-invalid.ng-dirty, select.ng-invalid.ng-dirty {
   border: 1px solid red;
+}
+
+.list-actions {
+  text-align: center;
+}
+
+.list-actions a {
+  margin-right: 10px;
+}
+
+.glyphicon-remove, .glyphicon-remove:hover {
+  color: #d00;
+  text-decoration: none;
+}
+
+.glyphicon-edit, .glyphicon-edit:hover {
+  text-decoration: none;
 }

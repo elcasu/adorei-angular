@@ -16,6 +16,12 @@
   <p ng-show="productForm.category.$invalid && !productForm.category.$pristine">El campo categor&iacute;a es obligatorio</p>
 </div>
 <div class="form-group">
+  <label for="image">Imagen</label>
+  <input name="image" type="file" nv-file-select="" uploader="uploader" multiple  />
+  <div ng-include="'partials/shared/uploader_template.html'"></div>
+</div>
+<div class="fix"></div>
+<div class="form-group">
   <label for="cost_price">Precio de costo</label>
   <input type="text" name="cost_price" id="cost_price" ng-model="product.cost_price" class="form-control" required />
   <p ng-show="productForm.cost_price.$invalid && !productForm.cost_price.$pristine">El precio de costo es obligatorio</p>
@@ -30,6 +36,4 @@
   <input type="text" name="stock" id="stock" ng-model="product.stock" class="form-control" required />
   <p ng-show="productForm.stock.$invalid && !productForm.stock.$pristine">El stock es obligatorio</p>
 </div>
-<input type="submit" class="btn btn-success" ng-disabled="productForm.$invalid" value="Agregar" />
-<a href="#/products" class="btn btn-default">Volver al listado</a>
 
