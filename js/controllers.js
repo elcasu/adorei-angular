@@ -44,8 +44,8 @@ adoreiControllers.controller("ModalConfirmCtrl", ['$scope', '$modalInstance',
 ]);
 
 // New product
-adoreiControllers.controller("ProductNewCtrl", ['$scope', '$location', 'StockApiClient', 'FileUploader',
-  function($scope, $location, StockApiClient, FileUploader) {
+adoreiControllers.controller("ProductNewCtrl", ['$scope', '$location', 'StockApiClient', 'ImageUploader', 'appConfig',
+  function($scope, $location, StockApiClient, ImageUploader, appConfig) {
     function getCategories() {
       StockApiClient.getCategories().success(function(categories) {
         $scope.categories = categories;
@@ -57,13 +57,15 @@ adoreiControllers.controller("ProductNewCtrl", ['$scope', '$location', 'StockApi
     }
     getCategories();
     $scope.product = {};
-    $scope.uploader = new FileUploader({ url: 'http://localhost:54321/upload' });
+    $scope.uploader = ImageUploader.getUploader(function(item, response) {
+      $scope.product.tmp_image = response.tmp;
+    });
   }
 ]);
 
 // Edit product
-adoreiControllers.controller("ProductEditCtrl", ['$scope', '$routeParams', '$location', 'StockApiClient',
-  function($scope, $routeParams, $location, StockApiClient) {
+adoreiControllers.controller("ProductEditCtrl", ['$scope', '$routeParams', '$location', 'StockApiClient', 'ImageUploader',
+  function($scope, $routeParams, $location, StockApiClient, ImageUploader) {
     function getCategories() {
       StockApiClient.getCategories().success(function(categories) {
         $scope.categories = categories;
@@ -82,8 +84,22 @@ adoreiControllers.controller("ProductEditCtrl", ['$scope', '$routeParams', '$loc
           $scope.product.category = category;
         }
       });
-      console.log($scope.product);
     });
+    $scope.uploader = ImageUploader.getUploader(function(item, response) {
+      $scope.product.tmp_image = response.tmp;
+    });
+
+    function guid() {
+      return 'xxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0,
+        v = c == 'x' ? r : (r & 0x3 | 0x8);
+        console.log("a");
+        return v.toString(16);
+      });
+    }
+
+    $scope.guid = guid();
+
   }
 ]);
 

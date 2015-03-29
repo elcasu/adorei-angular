@@ -17,8 +17,11 @@
 </div>
 <div class="form-group">
   <label for="image">Imagen</label>
-  <input name="image" type="file" nv-file-select="" uploader="uploader" multiple  />
-  <div ng-include="'partials/shared/uploader_template.html'"></div>
+  <div ng-show="product.image != ''" class="form-image-wrapper">
+    <img ng-src="http://localhost:54321/images/product/{{ product.id }}/200x200?{{ guid }}" width="300" />
+  </div>
+  <input name="image" type="file" nv-file-select="" uploader="uploader" ng-hide="uploader.queue.length > 0" />
+  <div ng-include="'partials/shared/uploader_template.html'" ng-show="uploader.queue.length > 0"></div>
 </div>
 <div class="fix"></div>
 <div class="form-group">

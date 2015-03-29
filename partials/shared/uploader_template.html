@@ -33,12 +33,14 @@
           <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
         </td>
         <td nowrap>
+          <!--
           <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
             <span class="glyphicon glyphicon-upload"></span> Subir
           </button>
           <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
             <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
           </button>
+          -->
           <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
             <span class="glyphicon glyphicon-trash"></span> Eliminar
           </button>

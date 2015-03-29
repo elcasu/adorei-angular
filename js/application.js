@@ -6,11 +6,13 @@ var adoreiApp = angular.module("adoreiApp", [
   "angularFileUpload",
   "adoreiServices",
   "adoreiControllers",
-  "adoreiDirectives"
+  "adoreiDirectives",
+  "appConfig"
 ]);
 
 adoreiApp.config(["$routeProvider", function($routeProvider) {
   $routeProvider.
+    // Products
     when('/products', {
       templateUrl: 'partials/products/list.html',
       controller: 'ProductListCtrl'
@@ -23,6 +25,7 @@ adoreiApp.config(["$routeProvider", function($routeProvider) {
       templateUrl: 'partials/products/edit.html',
       controller: 'ProductEditCtrl'
     }).
+    // Categories
     when('/categories', {
       templateUrl: 'partials/categories/list.html',
       controller: 'CategoryListCtrl'
