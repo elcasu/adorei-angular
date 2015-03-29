@@ -12,7 +12,7 @@ var adoreiApp = angular.module("adoreiApp", [
 
 adoreiApp.config(["$routeProvider", function($routeProvider) {
   $routeProvider.
-    // Products
+    // ------------- Products -------------
     when('/products', {
       templateUrl: 'partials/products/list.html',
       controller: 'ProductListCtrl'
@@ -25,10 +25,18 @@ adoreiApp.config(["$routeProvider", function($routeProvider) {
       templateUrl: 'partials/products/edit.html',
       controller: 'ProductEditCtrl'
     }).
-    // Categories
+    // ------------- Categories -------------
     when('/categories', {
       templateUrl: 'partials/categories/list.html',
       controller: 'CategoryListCtrl'
+    }).
+    when('/categories/new', {
+      templateUrl: 'partials/categories/new.html',
+      controller: 'CategoryNewCtrl'
+    }).
+    when('/categories/edit/:id', {
+      templateUrl: 'partials/categories/edit.html',
+      controller: 'CategoryEditCtrl'
     }).
     otherwise({
       redirectTo: '/products'

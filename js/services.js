@@ -44,6 +44,28 @@ adoreiServices.factory("StockApiClient", ["$http", "appConfig",
       },
       getCategories: function() {
         return $http.get(apiUrl + 'categories');
+      },
+      addCategory: function(category) {
+        $http.post(apiUrl + "categories", {
+          category: {
+            name: category.name,
+            description: category.description
+          }
+        });
+      },
+      updateCategory: function(category) {
+        return $http.put(apiUrl + "categories/" + category.id, {
+          category: {
+            name: category.name,
+            description: category.description
+          }
+        });
+      },
+      getCategory: function(id) {
+        return $http.get(apiUrl + "categories/" + id);
+      },
+      removeCategory: function(category) {
+        return $http.delete(apiUrl + 'categories/' + category.id);
       }
     }
   }

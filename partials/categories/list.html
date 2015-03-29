@@ -1,17 +1,22 @@
 <div class="main-subheader">
   <h2>Listado de categor&iacute;as</h2>
   <span>
-    <a href="#/products/new" class="btn btn-success">Nueva categor&iacute;a</a>
+    <a href="#/categories/new" class="btn btn-success">Nueva categor&iacute;a</a>
   </span>
 </div>
-<table class="table">
+<table class="table" ng-controller="CategoryListCtrl">
   <tr>
     <th>Nombre</th>
     <th>Descripci&oacute;n</th>
+    <th>Acciones</th>
   </tr>
   <tr ng-repeat="category in categories">
     <td>{{ category.name }}</td>
     <td>{{ category.description }}</td>
+    <td class="list-actions">
+      <a href="#/categories/edit/{{ category.id }}" class="glyphicon glyphicon-edit" title="Editar"></a>
+      <a href="" ng-click="removeCategory(category)" class="glyphicon glyphicon-remove" title="Eliminar"></a>
+    </td>
   </tr>
 </table>
 
