@@ -78,3 +78,8 @@ input.ng-invalid.ng-dirty, select.ng-invalid.ng-dirty {
 .glyphicon-edit, .glyphicon-edit:hover {
   text-decoration: none;
 }
+
+.signin-wrapper {
+  margin: 10px auto;
+  float: none;
+}

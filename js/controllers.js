@@ -2,7 +2,14 @@
 
 var adoreiControllers = angular.module("adoreiControllers", []);
 
-  // Product list
+// Login
+adoreiControllers.controller("SigninCtrl", ['$scope', '$auth',
+  function($scope, $auth) {
+    $scope.loginForm = {};
+  }
+]);
+
+// Product list
 adoreiControllers.controller("ProductListCtrl", ['$scope', '$modal', 'StockApiClient',
   function($scope, $modal, StockApiClient) {
     function getProducts() {
