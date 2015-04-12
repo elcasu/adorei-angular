@@ -2,10 +2,11 @@
 
 var adoreiAuth = angular.module("adoreiAuth", []);
 
-adoreiAuth.config(["$authProvider",
-  function($authProvider) {
+adoreiAuth.config(["$authProvider", "$httpProvider",
+  function($authProvider, $httpProvider) {
     $authProvider.configure({
-      apiUrl: 'http://localhost:54321'
+      apiUrl: 'http://localhost:54321',
     });
   }
 ]);
+

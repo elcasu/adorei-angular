@@ -5,7 +5,7 @@
   <form name="productForm" method="post" novalidate class="simple-form" ng-submit="updateProduct(product)">
     <div ng-include="'partials/products/form.html'"></div>
     <input type="submit" class="btn btn-success" ng-disabled="productForm.$invalid" value="Actualizar" />
-    <a href="#/products" class="btn btn-default">Volver al listado</a>
+    <a ui-sref="admin.products" class="btn btn-default">Volver al listado</a>
   </form>
 </div>
 

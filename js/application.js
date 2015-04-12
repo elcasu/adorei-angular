@@ -3,13 +3,17 @@
 var adoreiApp = angular.module("adoreiApp", [
   "ui.router",
   "ui.bootstrap",
+  "ipCookie",
   "angularFileUpload",
-  "ng-token-auth",
   "adoreiServices",
   "adoreiControllers",
   "adoreiDirectives",
   "adoreiRoutes",
-  "adoreiAuth",
   "appConfig"
 ]);
 
+adoreiApp.run(['$rootScope', 'sessionManager',
+  function($rootScope, sessionManager) {
+    $rootScope.session = sessionManager;
+  }
+]);

@@ -8,13 +8,11 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-cookie/angular-cookie.js"></script>
-    <script src="bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/routes.js"></script>
-    <script src="js/auth.js"></script>
     <script src="js/services.js"></script>
     <script src="js/application.js"></script>
     <script src="js/controllers.js"></script>
@@ -24,6 +22,9 @@
     <div class="header">
       <h1>Adorei - Control de Stock</h1>
     </div>
-    <div ui-view></div>
+    <sidebar ng-if="session.userIsAuthenticated()"></sidebar>
+    <div class="main-wrapper">
+      <div ui-view></div>
+    </div>
   </body>
 </html>

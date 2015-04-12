@@ -2,8 +2,8 @@
 
 var adoreiRoutes = angular.module("adoreiRoutes", []);
 
-adoreiRoutes.config(["$stateProvider", "$urlRouterProvider",
-  function($stateProvider, $urlRouterProvider) {
+adoreiRoutes.config(["$stateProvider", "$urlRouterProvider", "sessionProvider",
+  function($stateProvider, $urlRouterProvider, sessionProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
       .state('signin', {
@@ -16,53 +16,50 @@ adoreiRoutes.config(["$stateProvider", "$urlRouterProvider",
         abstract: true,
         template: '<ui-view/>',
         resolve: {
-          auth: function($auth) {
-            return $auth.validateUser();
+          authenticated: function(sessionManager) {
+            return sessionManager.userIsAuthenticated()
+          }
+        },
+        controller: function($window, $state, authenticated) {
+          if(!authenticated) {
+            $window.location.assign($state.href("admin"));
           }
         }
       })
+
+      // ------------- Products -------------
       .state('admin.products', {
         url: '/products',
         templateUrl: 'partials/products/list.html',
         controller: 'ProductListCtrl'
       })
+      .state('admin.products_new', {
+        url: '/products/new',
+        templateUrl: 'partials/products/new.html',
+        controller: 'ProductNewCtrl'
+      })
+      .state('admin.products_edit', {
+        url: '/products/edit/:id',
+        templateUrl: 'partials/products/edit.html',
+        controller: 'ProductEditCtrl'
+      })
+
+      // ------------- Categories -------------
+      .state('admin.categories', {
+        url: '/categories',
+        templateUrl: 'partials/categories/list.html',
+        controller: 'CategoryListCtrl'
+      })
+      .state('admin.categories_new', {
+        url: '/categories/new',
+        templateUrl: 'partials/categories/new.html',
+        controller: 'CategoryNewCtrl'
+      })
+      .state('admin.categories_edit', {
+        url: '/categories/edit/:id',
+        templateUrl: 'partials/categories/edit.html',
+        controller: 'CategoryEditCtrl'
+      })
     ;
   }
 ]);
-
-
-/*
-adoreiRoutes.config(["$routeProvider", function($routeProvider) {
-  $routeProvider.
-    // ------------- Products -------------
-    when('/products', {
-      templateUrl: 'partials/products/list.html',
-      controller: 'ProductListCtrl'
-    }).
-    when('/products/new', {
-      templateUrl: 'partials/products/new.html',
-      controller: 'ProductNewCtrl'
-    }).
-    when('/products/edit/:id', {
-      templateUrl: 'partials/products/edit.html',
-      controller: 'ProductEditCtrl'
-    }).
-    // ------------- Categories -------------
-    when('/categories', {
-      templateUrl: 'partials/categories/list.html',
-      controller: 'CategoryListCtrl'
-    }).
-    when('/categories/new', {
-      templateUrl: 'partials/categories/new.html',
-      controller: 'CategoryNewCtrl'
-    }).
-    when('/categories/edit/:id', {
-      templateUrl: 'partials/categories/edit.html',
-      controller: 'CategoryEditCtrl'
-    }).
-    otherwise({
-      redirectTo: '/products'
-    })
-  ;
-}]);
-*/
