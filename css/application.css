@@ -8,14 +8,15 @@ body {
 }
 .header {
   width: 100%;
-  height: 100px;
+  height: 60px;
   clear: both;
   background-color: #0af;
   color: #fff;
 }
 .header h1 {
   margin: 0;
-  padding: 25px;
+  padding: 13px 25px;
+  font-size: 26px;
 }
 .sidebar {
   width: 15%;
@@ -38,6 +39,7 @@ body {
   width: 85%;
   float: left;
   padding: 0 40px;
+  margin: 0 auto;
 }
 
 .main-subheader {
@@ -82,4 +84,8 @@ input.ng-invalid.ng-dirty, select.ng-invalid.ng-dirty {
 .signin-wrapper {
   margin: 10px auto;
   float: none;
+}
+
+ol {
+  list-style-type: none;
 }

@@ -9,7 +9,8 @@ angular.module("adoreiApp", [
   "services",
   "directives",
   "routes",
-  "appConfig"
+  "appConfig",
+  "flash"
 ])
 
   .run(['$rootScope', 'sessionManager',

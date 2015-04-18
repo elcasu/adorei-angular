@@ -3,8 +3,8 @@
 angular.module("controllers", [])
 
   // Login
-  .controller("SigninCtrl", ['$scope', '$window', '$state', 'StockApiClient',
-    function($scope, $window, $state, StockApiClient) {
+  .controller("SigninCtrl", ['$scope', '$window', '$state', 'flash', 'StockApiClient',
+    function($scope, $window, $state, flash, StockApiClient) {
       $scope.loginForm = {};
       $scope.submitLogin = function() {
         StockApiClient.submitLogin($scope.loginForm)
@@ -13,6 +13,7 @@ angular.module("controllers", [])
           })
           .catch(function(response) {
             console.log("Wrong credentials");
+            flash("alert alert-danger", "Email o contraseña inválidos");
           })
         ;
       };

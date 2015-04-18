@@ -11,6 +11,7 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
+    <script src="bower_components/angular-flash-messages/angular-flash.js"></script>
 
     <!-- App configuration -->
     <script src="scripts/config.js"></script>
@@ -46,6 +47,7 @@
     </div>
     <sidebar ng-if="session.userIsAuthenticated()"></sidebar>
     <div class="main-wrapper">
+      <flash:messages></flash:messages>
       <div ui-view></div>
     </div>
   </body>
