@@ -6,19 +6,13 @@
 </div>
 <table class="table" ng-controller="ProductListCtrl">
   <tr>
-    <th>C&oacute;digo</th>
     <th>Nombre</th>
-    <th>Precio de compra</th>
     <th>Precio de venta</th>
-    <th>Stock</th>
     <th>Acciones</th>
   </tr>
   <tr ng-repeat="product in products">
-    <td>{{ product.code }}</td>
     <td>{{ product.name }}</td>
-    <td>{{ product.cost_price }}</td>
-    <td>{{ product.price }}</td>
-    <td>{{ product.stock }}</td>
+    <td>${{ product.price }}</td>
     <td class="list-actions">
       <a ui-sref="admin.products_edit({ id: product.id })" class="glyphicon glyphicon-edit" title="Editar"></a>
       <a href="" ng-click="removeProduct(product)" class="glyphicon glyphicon-remove" title="Eliminar"></a>

@@ -26,12 +26,9 @@ angular.module("services", [])
         addProduct: function(product) {
           $http.post(apiUrl + "products", {
             product: {
-              code: product.code,
               name: product.name,
               category_id: product.category.id,
-              cost_price: product.cost_price,
-              price: product.price,
-              stock: product.stock
+              price: product.price
             },
             tmp_image: product.tmp_image
           });
