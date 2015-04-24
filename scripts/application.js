@@ -3,6 +3,8 @@
 angular.module("adoreiApp", [
   "ui.router",
   "ui.bootstrap",
+  "ui.select",
+  "ngSanitize",
   "ipCookie",
   "angularFileUpload",
   "controllers",

@@ -60,6 +60,18 @@ angular.module("routes", [])
           templateUrl: 'partials/categories/edit.html',
           controller: 'CategoryEditCtrl'
         })
+
+        // ------------- Stock -------------
+        .state('admin.stock', {
+          url: '/stock',
+          templateUrl: 'partials/stock/list.html',
+          controller: 'StockListCtrl'
+        })
+        .state('admin.stock_new', {
+          url: '/stock/new',
+          templateUrl: 'partials/stock/new.html',
+          controller: 'StockNewCtrl'
+        })
       ;
     }
   ])
